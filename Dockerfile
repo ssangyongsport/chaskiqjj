@@ -68,3 +68,6 @@ RUN NODE_OPTIONS="--max-old-space-size=2048" \
     bundle exec rails assets:precompile --trace \
     && rm -rf /usr/src/app/node_modules /usr/src/app/tmp/cache/* /tmp/* \
     && yarn cache clean
+
+# Run database migrations and seed the database
+RUN bundle exec rails db:migrate && bundle exec rails db:seed
